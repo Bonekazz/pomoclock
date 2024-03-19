@@ -12,8 +12,8 @@
  */
 
 
-import { UserPomodor } from "../models/userPomodor.model";
-import { TimeBlock } from "../models/timeBlock.model";
+import { UserPomodor } from "./userPomodor.model";
+import { TimeBlock } from "./timeBlock.model";
 
 export class PomodorManager {
     public currentPomodor?: UserPomodor;

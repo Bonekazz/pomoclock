@@ -7,7 +7,7 @@
  * 
  */
 
-import { ITime, TimeBlock } from "../models/timeBlock.model";
+import { ITime, TimeBlock } from "./timeBlock.model";
 
 
 export interface ITimerState {
