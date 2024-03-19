@@ -9,7 +9,7 @@
 import { TimeBlock } from "./timeBlock.model";
 
 
-export class Pomodor {
+export class UserPomodor {
     public _id?: string;
     public _blocks: TimeBlock[];
 

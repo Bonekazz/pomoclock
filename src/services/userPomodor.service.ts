@@ -4,11 +4,11 @@
  * @classdesc Serve and manage the user pomdors data
  */
 
-import { Pomodor } from "../models/pomodor.model";
+import { UserPomodor } from "../models/userPomodor.model";
 
 
-export class PomodorService {
-    public _pomodors?: Pomodor[];
+export class UserPomodorService {
+    public _pomodors?: UserPomodor[];
     public onPomodorListChnaged: Function;
 
     /**

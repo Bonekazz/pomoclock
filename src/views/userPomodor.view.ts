@@ -1,4 +1,4 @@
-export class PomodorView {
+export class UserPomodorView {
 
     constructor() {
         

@@ -9,6 +9,6 @@
  * @param view
  */
 
-export class PomodorController {
+export class UserPomodorController {
     constructor() { }
 }

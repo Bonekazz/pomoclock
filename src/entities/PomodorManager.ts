@@ -12,11 +12,11 @@
  */
 
 
-import { Pomodor } from "../models/pomodor.model";
+import { UserPomodor } from "../models/userPomodor.model";
 import { TimeBlock } from "../models/timeBlock.model";
 
 export class PomodorManager {
-    public currentPomodor?: Pomodor;
+    public currentPomodor?: UserPomodor;
     public currentBlock?: TimeBlock;
 
     constructor() { }
