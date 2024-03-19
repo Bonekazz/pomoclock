@@ -1,3 +1,5 @@
+// When the user opens the "my pomodors" page
+
 export class UserPomodorView {
 
     constructor() {
