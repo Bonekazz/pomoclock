@@ -31,11 +31,11 @@ export class UserPomodorService {
     // edit()
     // delete()
     // commit(pomodors: Pomodor[]){  // saves the data in the database (localStorage or ...)
-        // this.onPomodorListChanged();
+        // this.onPomodorListChanged(pomodors);
         // localStorage.setItem("pomodors", JSON.stringify(pomodors));
     // } 
 
-    // bindPomodorListChanged(callback: Function) {
+    // bindPomodorListChanged(callback: Function) { // will receive a render function from the view by the controller
         //  this.onUserListChanged = callback;
     // }
 }
