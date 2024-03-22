@@ -8,8 +8,8 @@ import { UserPomodor } from "../models/userPomodor.model";
 
 
 export class UserPomodorService {
-    public _pomodors?: UserPomodor[];
-    public onUserPomodorListChnaged: Function;
+    public userPomodorList: UserPomodor[];
+    public onUserPomodorListChanged: Function;
 
     /**
      * pomodors [
@@ -35,7 +35,7 @@ export class UserPomodorService {
         // localStorage.setItem("pomodors", JSON.stringify(pomodors));
     // } 
 
-    // bindPomodorListChanged(callback: Function) { // will receive a render function from the view by the controller
-        //  this.onUserListChanged = callback;
-    // }
+    bindUserPomodorListChanged(callback: Function) { // will receive a render function from the view by the controller
+        this.onUserPomodorListChanged = callback;
+    }
 }
