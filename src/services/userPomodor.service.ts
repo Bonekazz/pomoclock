@@ -36,9 +36,11 @@ export class UserPomodorService {
         this.userPomodorList = pomodors.map((pomodor: UserPomodor): UserPomodor => pomodor as UserPomodor);
     }
 
-    // add()
-    // edit()
-    // delete()
+    addPomodor(pomodor: UserPomodor) {
+        this.userPomodorList.push(pomodor);
+    }
+    // editPomodor()
+    // deletePomodor()
     // commit(pomodors: Pomodor[]){  // saves the data in the database (localStorage or ...)
         // this.onPomodorListChanged(pomodors);
         // localStorage.setItem("pomodors", JSON.stringify(pomodors));
