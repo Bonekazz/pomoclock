@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from "uuid"
 /**
  * @class Model
  * 
@@ -10,11 +11,11 @@ import { TimeBlock } from "./timeBlock.model";
 
 
 export class UserPomodor {
-    public _id?: string;
-    public _blocks: TimeBlock[];
+    public id: string;
+    public blocks: TimeBlock[];
 
     constructor(blocks: TimeBlock[]) {
-        //this._id = uuidv4();
-        this._blocks = blocks;
+        this.id = uuidv4();
+        this.blocks = blocks;
     }
 }
