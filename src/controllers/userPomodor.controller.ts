@@ -22,7 +22,7 @@ export class UserPomodorController {
         
 
         // Display initial users
-        this.onUserPomodorListChanged(this.userPomodorService.userPomodors);
+        this.onUserPomodorListChanged(this._userPomodorService.userPomodorList);
     }
 
     init_bindings() {
