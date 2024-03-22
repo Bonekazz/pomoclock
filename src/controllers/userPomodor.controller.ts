@@ -11,13 +11,15 @@
 
 import { UserPomodor } from "../models/userPomodor.model";
 import { UserPomodorService } from "../services/userPomodor.service";
-//import { UserPomodorView } from "../views/userPomodor.view";
+import { UserPomodorView } from "../views/userPomodor.view";
 
 export class UserPomodorController {
     private userPomodorService: UserPomodorService;
+    private userPomodorView: UserPomodorView;
 
-    constructor(userPomodorService: UserPomodorService) { 
+    constructor(userPomodorService: UserPomodorService, userPomodorView: UserPomodorView) { 
         this.userPomodorService = userPomodorService;
+        this.userPomodorView = userPomodorView;
 
         this.init_bindings();
         
@@ -27,7 +29,7 @@ export class UserPomodorController {
 
     init_bindings() {
         this.userPomodorService.bindUserPomodorListChanged(this.onUserPomodorListChanged);
-        //this.userPomodorView.bindAddUser(this.handleAddUser);
+        this.userPomodorView.bindAddUserPomodor((pomodor: UserPomodor) => this.handleAddUserPomodor(pomodor));
     }
 
     onUserPomodorListChanged(userPomodors: UserPomodor[]) {
@@ -36,5 +38,10 @@ export class UserPomodorController {
         console.log(userPomodors);
     }
 
-    //handleAddUser(){}
+    handleAddUserPomodor(pomodor: UserPomodor){
+        this.userPomodorService.addPomodor(pomodor);
+    }
+
+    //handleDeleteUserPomodor(){}
+    //handleEditUserPomodor(){}
 }
