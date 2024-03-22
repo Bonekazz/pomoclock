@@ -9,7 +9,7 @@ import { UserPomodor } from "../models/userPomodor.model";
 
 export class UserPomodorService {
     public _pomodors?: UserPomodor[];
-    public onPomodorListChnaged: Function;
+    public onUserPomodorListChnaged: Function;
 
     /**
      * pomodors [
