@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 /**
  * @class Model
  * @classdesc modelo de bloco criado pelo usuario
@@ -16,14 +18,13 @@ export interface ITimeBlock {
 }
 
 export class TimeBlock {
-    public _id?:     string;
-    public _type:   string;
-    public _time:   ITime;
+    public id:     string;
+    public type:   string;
+    public time:   ITime;
 
     constructor({ type, time }: ITimeBlock) {
-        //this._id = uuidv4();
-
-        this._type = type;
-        this._time = time;
+        this.id = uuidv4();
+        this.type = type;
+        this.time = time;
     }
 }
