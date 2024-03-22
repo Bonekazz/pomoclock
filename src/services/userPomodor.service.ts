@@ -10,17 +10,7 @@ import { UserPomodor } from "../models/userPomodor.model";
 
 export class UserPomodorService {
     public userPomodorList: UserPomodor[];
-    public onUserPomodorListChanged: Function;
-
-    /**
-     * pomodors [
-     *  pomodor1: {
-     *      id: sssss,
-     *      blocks: []
-     * }
-     *  pomodor2: {}
-     * ]
-     */
+    public onUserPomodorListChanged: Function;  // the function to display the data
 
     constructor() {
         const pomo1 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
@@ -37,16 +27,18 @@ export class UserPomodorService {
     }
 
     addPomodor(pomodor: UserPomodor) {
-        this.userPomodorList.push(pomodor);
+        this.userPomodorList.push(pomodor)
+        this.commit(this.userPomodorList);
     }
     // editPomodor()
     // deletePomodor()
-    // commit(pomodors: Pomodor[]){  // saves the data in the database (localStorage or ...)
-        // this.onPomodorListChanged(pomodors);
-        // localStorage.setItem("pomodors", JSON.stringify(pomodors));
-    // } 
 
     bindUserPomodorListChanged(callback: Function) { // will receive a render function from the view by the controller
         this.onUserPomodorListChanged = callback;
+    }
+
+    commit(pomodors: UserPomodor[]) {
+        this.onUserPomodorListChanged(pomodors);
+        localStorage.setItem("pomodors", JSON.stringify(pomodors))
     }
 }
