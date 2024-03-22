@@ -14,7 +14,7 @@ import { UserPomodorService } from "../services/userPomodor.service";
 
 export class UserPomodorController {
     private _userPomodorService: UserPomodorService;
-    private _onUserPomodorListChanged: Function;
+    private onUserPomodorListChanged: Function;
 
     constructor(userPomodorService: UserPomodorService) { 
         this._userPomodorService = userPomodorService;
@@ -22,11 +22,11 @@ export class UserPomodorController {
         
 
         // Display initial users
-        this._onUserPomodorListChanged(this.userPomodorService.userPomodors);
+        this.onUserPomodorListChanged(this.userPomodorService.userPomodors);
     }
 
     init_bindings() {
-        this._userPomodorService.bindUserPomodorListChanged(this._onUserPomodorListChanged);
+        this._userPomodorService.bindUserPomodorListChanged(this.onUserPomodorListChanged);
         //this.userPomodorView.bindAddUser(this.handleAddUser);
     }
 
