@@ -4,6 +4,7 @@
  * @classdesc Serve and manage the user pomdors data
  */
 
+import { TimeBlock } from "../models/timeBlock.model";
 import { UserPomodor } from "../models/userPomodor.model";
 
 
@@ -22,9 +23,17 @@ export class UserPomodorService {
      */
 
     constructor() {
-        // const pomodors = JSON.parse(localStorage.getItem("pomodors")) || []  // get the data from localStorage or somewhere else;
+        const pomo1 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
+        const pomo2 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
+        const pomo3 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
+        localStorage.setItem("pomodors", JSON.stringify([pomo1, pomo2, pomo3]));
+        
+        const data = localStorage.getItem("pomodors");
+        if(data === null) throw new Error("data is empty");
+        const pomodors = JSON.parse(data)// get the data from localStorage or somewhere else;
+        console.log(pomodors);
 
-        //this._pomodors = pomodors.map(pomodor => new Pomodor(pomodor.blocks))
+        this.userPomodorList = pomodors.map((pomodor: UserPomodor): UserPomodor => pomodor as UserPomodor);
     }
 
     // add()
