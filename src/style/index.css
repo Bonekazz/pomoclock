@@ -27,4 +27,17 @@
     .top-menu-btn {
         @apply cursor-pointer active:scale-[0.90] transition-all ease-in-out;
     }
+
+    .button {
+        @apply cursor-pointer active:scale-95 transition-all ease-in-out;
+    }
+
+    .button-md {
+        @apply cursor-pointer active:scale-[0.90] transition-all ease-in-out;
+
+    }
+
+    .button-lg {
+        
+    }
 }
