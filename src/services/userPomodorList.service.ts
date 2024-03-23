@@ -13,15 +13,19 @@ export class UserPomodorListService {
     public onUserPomodorListChanged: Function;  // the function to display the data
 
     constructor() {
-        const pomo1 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
-        const pomo2 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
-        const pomo3 = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
+        const block1 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})
+        const block2 = new TimeBlock({type: "break", time: {hours: 0, minutes: 0, seconds: 5}})
+        const block3 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})
+
+        const pomo1 = new UserPomodor("estudar", [block1, block2, block3]);
+        const pomo2 = new UserPomodor("trabalhar", [block1, block2, block3]);
+        const pomo3 = new UserPomodor("stream", [block1, block2, block3]);
+        
         localStorage.setItem("pomodors", JSON.stringify([pomo1, pomo2, pomo3]));
         
         const data = localStorage.getItem("pomodors");
-        if(data === null) throw new Error("data is empty");
-        const pomodors = JSON.parse(data)// get the data from localStorage or somewhere else;
-
+        const pomodors = data === null ? [] : JSON.parse(data);
+        
         this.userPomodorList = pomodors.map((pomodor: UserPomodor): UserPomodor => pomodor as UserPomodor);
     }
 
