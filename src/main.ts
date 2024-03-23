@@ -1,6 +1,6 @@
-import { UserPomodorController } from "./controllers/userPomodor.controller";
-import { UserPomodorService } from "./services/userPomodor.service";
-import { UserPomodorView } from "./views/userPomodor.view";
+import { UserPomodorListController } from "./controllers/userPomodorList.controller";
+import { UserPomodorListService } from "./services/userPomodorList.service";
+import { UserPomodorListView } from "./views/userPomodorList.view";
 
 import { createIcons, Menu, Eye, Ellipsis, Plus} from "lucide";
 
@@ -13,4 +13,4 @@ createIcons({
     }
 });
 
-const userPomodorController = new UserPomodorController(new UserPomodorService, new UserPomodorView);
+const userPomodorListController = new UserPomodorListController(new UserPomodorListService, new UserPomodorListView);
