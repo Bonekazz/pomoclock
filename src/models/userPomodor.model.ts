@@ -12,10 +12,12 @@ import { TimeBlock } from "./timeBlock.model";
 
 export class UserPomodor {
     public id: string;
+    public title: string;
     public blocks: TimeBlock[];
 
-    constructor(blocks: TimeBlock[]) {
+    constructor(title: string, blocks: TimeBlock[]) {
         this.id = uuidv4();
+        this.title = title;
         this.blocks = blocks;
     }
 }
