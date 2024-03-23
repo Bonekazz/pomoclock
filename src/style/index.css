@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .timer-btn {
+        @apply px-2 border rounded-md border-black hover:cursor-pointer hover:bg-black hover:text-white hover:border-white hover:scale-110 transition-all ease-out active:scale-95;
+    }
+
+    .focus-type {
+        @apply bg-black border border-white text-white;
+    }
+    .break-type {
+        @apply bg-[#EBEBEB] border border-black/50 text-black;
+    }
+    .icon {
+        @apply cursor-pointer active:scale-[0.90] transition-all ease-in-out;
+    }
+    .add-block-btn {
+        @apply cursor-pointer active:scale-95 transition-all ease-in-out;
+    }
+    .block-component {
+        @apply cursor-pointer active:scale-95 transition-all ease-in-out;
+    }
+
+    .top-menu-btn {
+        @apply cursor-pointer active:scale-[0.90] transition-all ease-in-out;
+    }
+}
