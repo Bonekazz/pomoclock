@@ -6,6 +6,8 @@ import { UserPomodor } from "../models/userPomodor.model";
 export class UserPomodorListView {
     private app: HTMLElement;
     private addButton: HTMLElement;
+
+    private userPomodorList: HTMLElement;
     
     constructor() {
 
@@ -14,7 +16,9 @@ export class UserPomodorListView {
 
     init_elements() {
         this.app = document.getElementById("root") as HTMLElement;
-        this.addButton = this.createElement("button")
+        this.addButton = this.createElement("button");
+        this.userPomodorList = document.getElementById("div-user-pomodor-list") as HTMLElement;
+
         this.addButton.innerText = "add random";
 
         this.app.appendChild(this.addButton);
@@ -34,11 +38,46 @@ export class UserPomodorListView {
     
     bindAddUserPomodor(handler: Function) { 
         this.addButton.addEventListener("click", () => {
-            const randPomodor = new UserPomodor([new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})])
+            const randPomodor = new UserPomodor("random", [new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})])
             handler(randPomodor);
         })
     }
     // bindDeletePomodor(handeler: Function) {}
     // bindEditPomodor(handeler: Function) {}
+
+    displayUserPomodorList(userPomodorList: UserPomodor[]) {
+        if(userPomodorList.length === 0) {
+            this.userPomodorList.innerHTML = `
+                <div class="flex gap-2 mt-[5em]">
+                    <p>you dont have pomodors</p>
+                    <i data-lucide="frown"></i>
+                </div>
+                <button class="button border p-2 rounded-md">create one</button>
+            `
+            return;
+        }
+
+        this.userPomodorList.innerHTML = userPomodorList.map(pomodor => {
+            const id = pomodor.id;
+            const title = pomodor.title;
+            const blocks = pomodor.blocks;
+
+            const blocksHtml = blocks.map(block => {
+                return `
+                    <span class="w-full h-[2px] rounded-full ${block.type === "focus" ? "bg-black" : "bg-black/20"}">
+                    </span>
+                `
+            }).join("");
+
+            return `
+                <div id="${id}" class="border p-2 rounded-md w-full">
+                    <h2>${title}</h2>
+                    <div class="w-full flex flex-col gap-2">
+                        ${blocksHtml}
+                    </div>
+                </div>
+            `
+        }).join("");
+    }
 
 }
