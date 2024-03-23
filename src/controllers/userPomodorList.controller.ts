@@ -28,12 +28,12 @@ export class UserPomodorListController {
     }
 
     init_bindings() {
-        this.userPomodorListService.bindUserPomodorListChanged(this.onUserPomodorListChanged);
+        this.userPomodorListService.bindUserPomodorListChanged((userPomodorsList: UserPomodor[]) => this.onUserPomodorListChanged(userPomodorsList));
         this.userPomodorListView.bindAddUserPomodor((pomodor: UserPomodor) => this.handleAddUserPomodor(pomodor));
     }
 
     onUserPomodorListChanged(userPomodors: UserPomodor[]) {
-        //this.userPomodorView.displayUserPomodorList(userPomodors);
+        this.userPomodorListView.displayUserPomodorList(userPomodors);
         console.log("displaying users:");
         console.log(userPomodors);
     }
