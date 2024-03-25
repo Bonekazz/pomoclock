@@ -2,7 +2,7 @@ import { UserPomodorListController } from "./controllers/userPomodorList.control
 import { UserPomodorListService } from "./services/userPomodorList.service";
 import { UserPomodorListView } from "./views/userPomodorList.view";
 
-import { createIcons, Menu, Eye, Ellipsis, Plus, SquareLibrary, ChevronLeft, Frown} from "lucide";
+import { createIcons, Menu, Eye, Ellipsis, Plus, SquareLibrary, ChevronRight, Frown} from "lucide";
 
 createIcons({
     icons: {
@@ -11,7 +11,8 @@ createIcons({
         Ellipsis,
         Plus, 
         SquareLibrary, 
-        ChevronLeft, Frown
+        ChevronRight, 
+        Frown
     }
 });
 
