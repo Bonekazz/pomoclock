@@ -13,9 +13,9 @@ export class UserPomodorListService {
     public onUserPomodorListChanged: Function;  // the function to display the data
 
     constructor() {
-        const block1 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})
-        const block2 = new TimeBlock({type: "break", time: {hours: 0, minutes: 0, seconds: 5}})
-        const block3 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})
+        const block1 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}});
+        const block2 = new TimeBlock({type: "break", time: {hours: 0, minutes: 0, seconds: 5}});
+        const block3 = new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}});
 
         const pomo1 = new UserPomodor("estudar", [block1, block2, block3]);
         const pomo2 = new UserPomodor("trabalhar", [block1, block2, block3]);
@@ -30,7 +30,7 @@ export class UserPomodorListService {
     }
 
     addPomodor(pomodor: UserPomodor) {
-        this.userPomodorList.push(pomodor)
+        this.userPomodorList.push(pomodor);
         this.commit(this.userPomodorList);
     }
     // editPomodor()
@@ -42,6 +42,6 @@ export class UserPomodorListService {
 
     commit(pomodors: UserPomodor[]) {
         this.onUserPomodorListChanged(pomodors);
-        localStorage.setItem("pomodors", JSON.stringify(pomodors))
+        localStorage.setItem("pomodors", JSON.stringify(pomodors));
     }
 }

@@ -52,9 +52,9 @@ export class UserPomodorListView {
     
     bindAddUserPomodor(handler: Function) { 
         this.addButton.addEventListener("click", () => {
-            const randPomodor = new UserPomodor("random", [new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})])
+            const randPomodor = new UserPomodor("random", [new TimeBlock({type: "focus", time: {hours: 0, minutes: 0, seconds: 5}})]);
             handler(randPomodor);
-        })
+        });
     }
     // bindDeletePomodor(handeler: Function) {}
     // bindEditPomodor(handeler: Function) {}
@@ -67,7 +67,7 @@ export class UserPomodorListView {
                     <i data-lucide="frown"></i>
                 </div>
                 <button class="button border p-2 rounded-md">create one</button>
-            `
+            `;
             return;
         }
 
@@ -80,7 +80,7 @@ export class UserPomodorListView {
                 return `
                     <span class="w-full h-[2px] rounded-full ${block.type === "focus" ? "bg-black" : "bg-black/20"}">
                     </span>
-                `
+                `;
             }).join("");
 
             return `
@@ -90,7 +90,7 @@ export class UserPomodorListView {
                         ${blocksHtml}
                     </div>
                 </div>
-            `
+            `;
         }).join("");
     }
 
