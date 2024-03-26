@@ -19,7 +19,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "strictPropertyInitialization": false    // no initalized properties emitter
+    "strictPropertyInitialization": false,   // no initalized properties emitter
+
+    // jest
+    "esModuleInterop": true
   },
   "include": ["src"]
 }
