@@ -2,8 +2,8 @@
 
 import { TimeBlock } from "../models/timeBlock.model";
 import { UserPomodor } from "../models/userPomodor.model";
-import { ElementGen } from "../utils/elementGen";
-import { userPomodorCard } from "./components/userPomodorCard";
+import { EmptyListCard } from "./components/EmptyListCard";
+import { UserPomodorCard } from "./components/UserPomodorCard";
 
 export class UserPomodorListView {
     private app: HTMLElement;
@@ -70,36 +70,27 @@ export class UserPomodorListView {
 
     displayUserPomodorList(userPomodorList: UserPomodor[]) {
         if(userPomodorList.length === 0) {
-            this.userPomodorListElement.innerHTML = `
-                <div class="flex gap-2 mt-[5em]">
-                    <p>you dont have pomodors</p>
-                    <i data-lucide="frown"></i>
-                </div>
-                <button class="button border p-2 rounded-md">create one</button>
-            `;
+
+            this.userPomodorListElement.replaceChildren(EmptyListCard());
+            
             this.createPomodorBtn.classList.add("hidden");
 
             return;
         }
 
-
-        this.userPomodorListElement.innerHTML = userPomodorList.map(pomodor => {
+        const pomodors = userPomodorList.map(pomodor => {
             const id = pomodor.id;
             const title = pomodor.title;
             const blocks = pomodor.blocks;
 
-            const card = userPomodorCard(id, title, blocks);
+            return UserPomodorCard(id, title, blocks);
+        });
 
-            return card;
+        this.userPomodorListElement.replaceChildren(...pomodors);
 
-        }).join("");
 
         this.createPomodorBtn.classList.remove("hidden");
     }
 
     
-
-    // Aqui eu poderia criar um componente especifico para cada pomodoro (dentro de uma pasta components)
-    // e passar os props
-
 }
