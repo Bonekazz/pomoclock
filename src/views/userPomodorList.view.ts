@@ -78,15 +78,13 @@ export class UserPomodorListView {
             return;
         }
 
-        const pomodors = userPomodorList.map(pomodor => {
+        this.userPomodorListElement.replaceChildren(...userPomodorList.map(pomodor => {
             const id = pomodor.id;
             const title = pomodor.title;
             const blocks = pomodor.blocks;
 
             return UserPomodorCard(id, title, blocks);
-        });
-
-        this.userPomodorListElement.replaceChildren(...pomodors);
+        }));
 
 
         this.createPomodorBtn.classList.remove("hidden");
