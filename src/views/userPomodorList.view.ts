@@ -2,12 +2,17 @@
 
 import { TimeBlock } from "../models/timeBlock.model";
 import { UserPomodor } from "../models/userPomodor.model";
+import { ElementGen } from "../utils/elementGen";
+import { userPomodorCard } from "./components/userPomodorCard";
 
 export class UserPomodorListView {
     private app: HTMLElement;
     private addButton: HTMLElement;
 
+    private divUserPomodorListElement: HTMLElement;
     private userPomodorListElement: HTMLElement;
+
+    private createPomodorBtn: HTMLElement;
 
     private pomodorListSideBar: HTMLElement;
     private pomodorSideBarBtn: NodeList;
@@ -23,9 +28,13 @@ export class UserPomodorListView {
         this.app = document.getElementById("root") as HTMLElement;
         this.addButton = this.createElement("button");
 
-        this.userPomodorListElement = document.getElementById("div-user-pomodor-list") as HTMLElement;
+        this.divUserPomodorListElement = document.getElementById("div-user-pomodor-list") as HTMLElement;
+        this.userPomodorListElement = document.getElementById("user-pomodor-list") as HTMLElement;
+
         this.pomodorListSideBar = document.getElementById("pomodor-list-sidebar") as HTMLElement;
         this.pomodorSideBarBtn = document.querySelectorAll(".pomodor-sidebar-btn") as NodeList;
+
+        this.createPomodorBtn = document.getElementById("create-pomodor-btn") as HTMLElement;
 
         this.addButton.innerText = "add random";
 
@@ -68,30 +77,30 @@ export class UserPomodorListView {
                 </div>
                 <button class="button border p-2 rounded-md">create one</button>
             `;
+
+            this.createPomodorBtn.classList.toggle("hidden");
+
             return;
         }
+
 
         this.userPomodorListElement.innerHTML = userPomodorList.map(pomodor => {
             const id = pomodor.id;
             const title = pomodor.title;
             const blocks = pomodor.blocks;
 
-            const blocksHtml = blocks.map(block => {
-                return `
-                    <span class="w-full h-[2px] rounded-full ${block.type === "focus" ? "bg-black" : "bg-black/20"}">
-                    </span>
-                `;
-            }).join("");
+            const card = userPomodorCard(id, title, blocks);
 
-            return `
-                <div id="${id}" class="border p-2 rounded-md w-full">
-                    <h2>${title}</h2>
-                    <div class="w-full flex flex-col gap-2">
-                        ${blocksHtml}
-                    </div>
-                </div>
-            `;
+            return card;
+
         }).join("");
+
+        this.createPomodorBtn.classList.toggle("hidden");
     }
+
+    
+
+    // Aqui eu poderia criar um componente especifico para cada pomodoro (dentro de uma pasta components)
+    // e passar os props
 
 }
