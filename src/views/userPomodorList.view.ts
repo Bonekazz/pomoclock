@@ -77,8 +77,7 @@ export class UserPomodorListView {
                 </div>
                 <button class="button border p-2 rounded-md">create one</button>
             `;
-
-            this.createPomodorBtn.classList.toggle("hidden");
+            this.createPomodorBtn.classList.add("hidden");
 
             return;
         }
@@ -95,7 +94,7 @@ export class UserPomodorListView {
 
         }).join("");
 
-        this.createPomodorBtn.classList.toggle("hidden");
+        this.createPomodorBtn.classList.remove("hidden");
     }
 
     
