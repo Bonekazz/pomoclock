@@ -9,7 +9,6 @@ export class UserPomodorListView {
     private app: HTMLElement;
     private addButton: HTMLElement;
 
-    private divUserPomodorListElement: HTMLElement;
     private userPomodorListElement: HTMLElement;
 
     private createPomodorBtn: HTMLElement;
@@ -28,7 +27,6 @@ export class UserPomodorListView {
         this.app = document.getElementById("root") as HTMLElement;
         this.addButton = this.createElement("button");
 
-        this.divUserPomodorListElement = document.getElementById("div-user-pomodor-list") as HTMLElement;
         this.userPomodorListElement = document.getElementById("user-pomodor-list") as HTMLElement;
 
         this.pomodorListSideBar = document.getElementById("pomodor-list-sidebar") as HTMLElement;
