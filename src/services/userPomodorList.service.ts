@@ -22,6 +22,7 @@ export class UserPomodorListService {
         const pomo3 = new UserPomodor("stream", [block1, block2, block3]);
         
         localStorage.setItem("pomodors", JSON.stringify([pomo1, pomo2, pomo3]));
+        localStorage.removeItem("pomodors");
         
         const data = localStorage.getItem("pomodors");
         const pomodors = data === null ? [] : JSON.parse(data);

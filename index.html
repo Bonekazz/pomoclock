@@ -10,6 +10,18 @@
   <body class="flex flex-col items-center">
     <div id="root"></div>
 
+    <div class="div-main-modal absolute h-full w-full overflow-hidden flex items-center justify-center hidden">
+      <div id="modal-bg" class="bg-black/50 w-full h-full absolute z-[400] cursor-pointer"></div>
+
+      <div class="bg-white w-[200px] h-[200px] absolute z-[500] rounded-md">
+        <h1 class="text-center">modal</h1>
+        <div class="flex flex-col justify-between w-full h-full">
+          
+          <button class="button border rounded-md p-2">save</button>
+        </div>
+      </div>
+    </div>
+
     <div class="flex justify-between w-full px-10">
       <button id="menu-side-bar">
         <i data-lucide="menu" stroke-width="3" color="#CBCBCB" class="top-menu-btn w-[35px] h-[35px] left-[48px] top-[41px]"></i>
